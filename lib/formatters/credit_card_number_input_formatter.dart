@@ -56,11 +56,8 @@ class CreditCardNumberInputFormatter extends TextInputFormatter {
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    var isErasing = newValue.text.length < oldValue.text.length;
-    if (isErasing) {
-      if (newValue.text.isEmpty) {
-        _clearCountry();
-      }
+    if (newValue.text.isEmpty) {
+      _clearCountry();
       return newValue;
     }
     var onlyNumbers = toNumericString(newValue.text);
